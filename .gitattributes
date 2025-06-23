@@ -1,0 +1,29 @@
+# Git attributes for SDOH Risk Model
+
+# Mark model files as binary
+*.joblib binary
+*.pkl binary
+*.pickle binary
+*.model binary
+
+# Mark data files as binary (if any slip through)
+*.csv binary
+*.xlsx binary
+*.xls binary
+
+# Ensure consistent line endings
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Mark generated files
+docs/executive_report/*.html linguist-generated=true
+results/**/*.png linguist-generated=true
+results/**/*.pdf linguist-generated=true
+
+# Language statistics
+*.ipynb linguist-documentation
+docs/* linguist-documentation

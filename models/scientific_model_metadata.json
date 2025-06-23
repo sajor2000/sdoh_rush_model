@@ -1,0 +1,72 @@
+{
+    "created_date": "2025-06-22T18:39:32.499031",
+    "methodology": "Scientifically correct - no data leakage",
+    "data_split": {
+        "train": "60%",
+        "validation": "20% (for calibration and threshold selection)",
+        "test": "20% (held out for final evaluation)"
+    },
+    "threshold_selection": {
+        "method": "Optimized on validation set only",
+        "optimal_threshold": 0.05,
+        "validation_metrics": {
+            "threshold": 0.05,
+            "sensitivity": 0.7308944646619422,
+            "specificity": 0.6807165007344541,
+            "ppv": 0.13982631636803342,
+            "screening_rate": 0.346574385675281,
+            "score": 0.5903333650726026
+        }
+    },
+    "validation_performance": {
+        "set": "Validation",
+        "n_samples": 78745,
+        "threshold_used": 0.05,
+        "auc": 0.7758838420743353,
+        "auprc": 0.2256440300834802,
+        "ece": 0.005848624525561754,
+        "brier_score": 0.0574646361319144,
+        "sensitivity": 0.7308944646619422,
+        "specificity": 0.6807165007344541,
+        "ppv": 0.13982631636803342,
+        "npv": 0.9726940568274576,
+        "screening_rate": 0.346574385675281,
+        "tp": 3816,
+        "fp": 23475,
+        "tn": 50049,
+        "fn": 1405
+    },
+    "test_performance": {
+        "set": "Test",
+        "n_samples": 78745,
+        "threshold_used": 0.05,
+        "auc": 0.7650078892579143,
+        "auprc": 0.2110431006435558,
+        "ece": 0.007540318257981816,
+        "brier_score": 0.0582598739241871,
+        "sensitivity": 0.7222754261635702,
+        "specificity": 0.6785403405690659,
+        "ppv": 0.13759760636357002,
+        "npv": 0.9717563645571593,
+        "screening_rate": 0.3480347958600546,
+        "tp": 3771,
+        "fp": 23635,
+        "tn": 49889,
+        "fn": 1450
+    },
+    "model_params": {
+        "max_depth": 5,
+        "learning_rate": 0.1,
+        "n_estimators": 200,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 3,
+        "gamma": 0.05,
+        "scale_pos_weight": 0.8,
+        "objective": "binary:logistic",
+        "eval_metric": "logloss",
+        "seed": 2025,
+        "tree_method": "hist",
+        "n_jobs": -1
+    }
+}

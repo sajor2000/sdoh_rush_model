@@ -1,0 +1,108 @@
+================================================================================
+SDOH SCREENING RECOMMENDATIONS FOR SENIOR CLINICS
+Analysis for Patients Aged 65 and Older
+Generated: 2025-06-22 19:20:16
+================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+Senior patients (65+) have different SDOH risk profiles compared to the general
+population. This analysis provides evidence-based threshold recommendations
+specifically optimized for senior clinics.
+
+Key Findings:
+• SDOH prevalence in seniors: 4.7%
+• Recommended threshold: 0.084
+• Expected screening rate: 7.7%
+• Expected PPV: 19.5%
+• Sensitivity: 31.8%
+
+SENIOR POPULATION CHARACTERISTICS
+----------------------------------------
+Total senior patients analyzed: 98,551
+Age distribution:
+  • 65-74: 52,919 (53.7%) - SDOH prevalence: 5.7%
+  • 75-84: 33,663 (34.2%) - SDOH prevalence: 3.6%
+  • 85+: 11,969 (12.1%) - SDOH prevalence: 3.3%
+
+
+THRESHOLD RECOMMENDATIONS
+========================================
+
+1. BALANCED APPROACH (Recommended)
+------------------------------
+Threshold: 0.0842
+Performance Metrics:
+  • Screening rate: 7.7%
+  • Sensitivity: 31.8%
+  • Specificity: 93.5%
+  • PPV: 19.5%
+  • NPV: 96.5%
+  • Number needed to screen: 5.1
+Resource Impact (per 1,000 seniors):
+  • Patients screened: 76
+  • True positives found: 20
+  • False positives: 61
+
+2. RESOURCE-CONSTRAINED SETTING
+------------------------------
+Threshold: 0.5000
+Performance Metrics:
+  • Screening rate: 0.2%
+  • Sensitivity: 1.5%
+  • PPV: 44.9%
+  • Number needed to screen: 2.2
+
+3. HIGH SENSITIVITY APPROACH
+------------------------------
+Threshold: 0.0100
+Performance Metrics:
+  • Screening rate: 100.0%
+  • Sensitivity: 100.0%
+  • PPV: 4.7%
+  • Number needed to screen: 21.2
+
+
+IMPLEMENTATION CONSIDERATIONS
+========================================
+
+1. Senior-Specific Factors:
+   • Higher baseline SDOH prevalence
+   • Multiple chronic conditions common
+   • Fixed income considerations
+   • Transportation barriers more prevalent
+   • Social isolation risks
+
+2. Workflow Integration:
+   • Align with Medicare Annual Wellness Visit
+   • Coordinate with geriatric assessments
+   • Consider cognitive screening timing
+   • Integrate with care transitions
+
+3. Resource Requirements:
+   • Estimated 8% of appointments need screening
+   • Average screening time: 15-20 minutes
+   • Social worker consultations for 19% of screened
+   • Community resource connections needed
+
+QUALITY METRICS TO MONITOR
+----------------------------------------
+1. Process Measures:
+   • Screening completion rate
+   • Time to intervention after positive screen
+   • Referral completion rates
+
+2. Outcome Measures:
+   • Reduction in ED visits
+   • Improvement in medication adherence
+   • Patient satisfaction scores
+   • Caregiver burden assessment
+
+FINAL RECOMMENDATIONS
+========================================
+1. Implement threshold of 0.084 for senior clinics
+2. Train staff on senior-specific SDOH issues
+3. Establish partnerships with Area Agencies on Aging
+4. Monitor performance monthly for first 6 months
+5. Adjust threshold based on resource availability
+6. Consider pilot in one clinic before full rollout

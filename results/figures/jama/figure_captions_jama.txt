@@ -1,0 +1,20 @@
+FIGURE CAPTIONS
+==================================================
+
+Figure 1. Model Performance Characteristics
+Performance evaluation of the social determinants of health (SDOH) screening model on the held-out test set (n=78,745). (A) Receiver operating characteristic curve showing the trade-off between true-positive and false-positive rates. (B) Precision-recall curve demonstrating performance for the minority positive class, with the dashed line indicating baseline performance. (C) Calibration plot comparing predicted probabilities with observed frequencies; perfect calibration would follow the diagonal line. Error bars represent 95% confidence intervals. (D) Distribution of predicted probabilities stratified by actual SDOH status, with the vertical dashed line indicating the selected threshold (0.05). AUC indicates area under the curve; AP, average precision; ECE, expected calibration error.
+
+Figure 2. Feature Importance Analysis
+Top 20 most important features contributing to SDOH risk prediction, measured by gain in the gradient boosting model. Features are color-coded by category: insurance/financial factors (blue), demographics (red), social vulnerability indices (green), area deprivation index (orange), and other factors (gray). Higher scores indicate greater contribution to model predictions.
+
+Figure 3. Model Performance Across Demographic Subgroups
+Area under the curve (AUC) stratified by (A) age groups, (B) sex, and (C) race. The dashed horizontal line represents overall model performance. Sample sizes are shown below each bar. Subgroups with fewer than 100 patients were excluded from analysis.
+
+Figure 4. Decision Curve Analysis
+Net benefit of the SDOH screening model compared with strategies of screening all patients or screening no patients across a range of threshold probabilities. The model provides positive net benefit (shaded area) when the threshold probability exceeds the population prevalence (vertical gray line). The model strategy accounts for both the benefits of identifying true positives and the costs of false-positive screening.
+
+Online Supplementary Figures
+------------------------------
+Figure S1. Extended feature importance analysis showing the top 50 features.
+
+Figure S2. Performance metrics across the full range of classification thresholds. (A) Sensitivity and specificity trade-off. (B) Positive predictive value and F1 score. The vertical dashed line indicates the selected threshold.

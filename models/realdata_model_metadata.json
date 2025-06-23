@@ -1,0 +1,76 @@
+{
+    "created_date": "2025-06-22T16:18:55.501687",
+    "data_source": "REAL SDOH DATA (sdoh2_ml_final_all_svi.csv)",
+    "random_seed": 2025,
+    "data_split": "60/20/20",
+    "n_samples": {
+        "total": 393725,
+        "train": 236235,
+        "calibration": 78745,
+        "test": 78745
+    },
+    "best_params": {
+        "max_depth": 3,
+        "learning_rate": 0.1,
+        "n_estimators": 200,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 5,
+        "gamma": 0.1,
+        "scale_pos_weight": 1,
+        "objective": "binary:logistic",
+        "eval_metric": "logloss",
+        "seed": 2025,
+        "tree_method": "hist",
+        "n_jobs": 16
+    },
+    "metrics": {
+        "base_model": {
+            "auc": 0.7602593906015869,
+            "auprc": 0.20797407474311252,
+            "ece": 0.0010319433892043454,
+            "brier_score": 0.05726827487684605,
+            "sensitivity": 0.0030645470216433632,
+            "specificity": 0.9999183939937979,
+            "ppv": 0.7272727272727273,
+            "npv": 0.9338820929080447,
+            "screening_rate": 0.00027938281795669565,
+            "threshold": 0.5644
+        },
+        "calibrated_model": {
+            "auc": 0.7602593906015869,
+            "auprc": 0.20797407474311252,
+            "ece": 0.0010319433892043454,
+            "brier_score": 0.05726827487684605,
+            "sensitivity": 0.0030645470216433632,
+            "specificity": 0.9999183939937979,
+            "ppv": 0.7272727272727273,
+            "npv": 0.9338820929080447,
+            "screening_rate": 0.00027938281795669565,
+            "threshold": 0.5644
+        },
+        "optimal_threshold": {
+            "auc": 0.7602593906015869,
+            "auprc": 0.20797407474311252,
+            "ece": 0.0010319433892043454,
+            "brier_score": 0.05726827487684605,
+            "sensitivity": 0.41409691629955947,
+            "specificity": 0.8890430335672705,
+            "ppv": 0.20949612403100776,
+            "npv": 0.9552941176470588,
+            "screening_rate": 0.13105594005968632,
+            "threshold": 0.13287457823753357
+        },
+        "optimal_threshold_value": 0.13287457823753357,
+        "improvement": {
+            "ece": 0.0,
+            "brier": 0.0
+        }
+    },
+    "clinical_notes": {
+        "recommended_threshold": 0.5644,
+        "optimal_threshold": 0.13287457823753357,
+        "target_prevalence": 0.066,
+        "calibration_method": "Platt scaling (if ECE > 0.05)"
+    }
+}

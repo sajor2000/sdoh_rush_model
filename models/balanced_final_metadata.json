@@ -1,0 +1,43 @@
+{
+    "created_date": "2025-06-22T18:29:44.156376",
+    "model_type": "Balanced Calibrated XGBoost",
+    "data_split": "60/20/20",
+    "optimal_threshold": 0.05,
+    "metrics": {
+        "auc": 0.7650078892579143,
+        "auprc": 0.2110431006435558,
+        "ece": 0.007540318257981816,
+        "brier_score": 0.0582598739241871,
+        "sensitivity": 0.7222754261635702,
+        "specificity": 0.6785403405690659,
+        "ppv": 0.13759760636357002,
+        "screening_rate": 0.3480347958600546
+    },
+    "parameters": {
+        "max_depth": 5,
+        "learning_rate": 0.1,
+        "n_estimators": 200,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 3,
+        "gamma": 0.05,
+        "scale_pos_weight": 0.8,
+        "objective": "binary:logistic",
+        "eval_metric": "logloss",
+        "seed": 2025,
+        "tree_method": "hist",
+        "n_jobs": -1
+    },
+    "feature_importance": {
+        "age_at_survey": 0.01429394818842411,
+        "sex_female": 0.008297627791762352,
+        "rpl_themes": 0.017968041822314262,
+        "rpl_theme1": 0.03540952131152153,
+        "rpl_theme2": 0.009615500457584858,
+        "rpl_theme3": 0.05803139880299568,
+        "rpl_theme4": 0.009837656281888485,
+        "ep_pov150": 0.08473654091358185,
+        "ep_unemp": 0.012372094206511974,
+        "ep_hburd": 0.02037741243839264
+    }
+}

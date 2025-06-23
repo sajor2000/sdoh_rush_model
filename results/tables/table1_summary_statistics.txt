@@ -1,0 +1,14 @@
+TABLE 1 SUMMARY STATISTICS
+==================================================
+
+Total statistical tests performed: 14
+Significant differences (p < 0.05): 14 (100.0%)
+Non-significant differences: 0 (0.0%)
+
+
+KEY FINDINGS:
+------------------------------
+1. Patients with SDOH ≥2 needs represent 6.6% of the population
+2. Significant differences exist in demographic and geographic factors
+3. Insurance type shows strong association with SDOH status
+4. Geographic vulnerability indices are higher in SDOH ≥2 group

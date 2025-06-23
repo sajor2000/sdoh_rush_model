@@ -164,3 +164,21 @@ catboost_info/
 mlruns/
 wandb/
 tensorboard/
+
+# Virtual Environment (specific to this project)
+sdoh_env/
+
+# Project specific files to ignore
+setup_github_repo.sh
+
+# Keep JSON metadata files
+!models/*_metadata.json
+!models/*.json
+
+# HTML files (keep only specific ones)
+*.html
+!index.html
+
+# Keep important CSV files in results
+!results/tables/table1_jama.csv
+!results/reports/fairness_metrics_summary.csv

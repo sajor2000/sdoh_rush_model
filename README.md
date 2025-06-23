@@ -8,6 +8,11 @@
 
 Production-ready machine learning model for identifying patients at risk for social determinants of health (SDOH) needs. Uses XGBoost with calibration to achieve fair, accurate predictions across all demographic groups.
 
+## Lead Author
+
+**Juan C. Rojas, MD, MS**  
+Rush University Medical Center
+
 ## Model Performance (Test Set, n=78,745)
 
 - **AUC**: 0.765
@@ -124,7 +129,7 @@ python scripts/comprehensive_fairness_analysis.py
 ```bibtex
 @article{sdoh_risk_model_2024,
   title={AI-Powered Social Determinants of Health Screening: A Fair and Accurate Model for Clinical Implementation},
-  author={[Your Name] and [Co-authors]},
+  author={Rojas, Juan C. and [Co-authors]},
   journal={[Journal Name]},
   year={2024},
   doi={10.xxxx/xxxx}

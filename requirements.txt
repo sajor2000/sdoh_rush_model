@@ -1,16 +1,29 @@
 # Core dependencies for SDOH Risk Screening Model
-pandas>=1.3.0
-numpy>=1.21.0
-scikit-learn>=1.0.0
-xgboost>=1.5.0
-joblib>=1.1.0
+# Generated: June 2025 - Final Version
+pandas==2.3.0
+numpy==2.2.6
+scikit-learn==1.7.0
+xgboost>=2.0.0
+joblib==1.5.1
 
 # For analysis and visualization
 matplotlib>=3.4.0
 seaborn>=0.11.0
 
 # For statistical analysis
-scipy>=1.7.0
+scipy==1.16.0
 
-# For progress bars (optional)
+# For model interpretability (SHAP analysis)
+shap>=0.48.0
+
+# For hyperparameter optimization
+optuna>=3.0.0
+
+# For fairness analysis
+fairlearn>=0.10.0
+
+# For progress bars
 tqdm>=4.62.0
+
+# For calibration and advanced metrics
+typing-extensions>=4.0.0

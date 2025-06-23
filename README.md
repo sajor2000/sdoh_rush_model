@@ -15,12 +15,18 @@ Rush University Medical Center
 
 ## Model Performance (Test Set, n=78,745)
 
-- **AUC**: 0.765
-- **Sensitivity**: 72.2% (at 5% threshold)
+- **AUC**: 0.766 (good discrimination)
+- **Sensitivity**: 72.2% (at 5.7% threshold)
 - **Specificity**: 67.9%
-- **PPV**: 13.8%
-- **Calibration Error**: 0.008 (excellent)
-- **Fairness**: Verified across age, sex, race, ethnicity
+- **PPV**: 13.7%
+- **Calibration Error (ECE)**: 0.0022 (excellent)
+- **Fairness**: Verified across age groups and gender (race/ethnicity excluded by design)
+
+## Universal Screening Vision
+
+**Our Goal**: Screen every patient for SDOH needs.  
+**Current Phase**: AI-guided prioritization while building capacity for universal screening.  
+**Bridge Strategy**: This tool helps identify highest-risk patients during our transition to comprehensive care.
 
 ## Repository Structure
 

@@ -175,9 +175,9 @@ setup_github_repo.sh
 !models/*_metadata.json
 !models/*.json
 
-# HTML files (keep only specific ones)
-*.html
-!index.html
+# HTML files (exclude only venv/virtual env HTML files)
+venv/**/*.html
+sdoh_env/**/*.html
 
 # Keep important CSV files in results
 !results/tables/table1_jama.csv

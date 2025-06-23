@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding SHAP Analysis - Executive Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .plot-explanation {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #e74c3c;
+        }
+        .example-box {
+            background-color: #e8f6f3;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .key-point {
+            background-color: #fef9e7;
+            padding: 10px;
+            border-left: 4px solid #f39c12;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding SHAP (SHapley Additive exPlanations) Analysis</h1>
+        <p style="font-size: 1.1em; color: #666;">A Guide for Healthcare Executives</p>
+        
+        <h2>What is SHAP?</h2>
+        <p>SHAP is a method to explain individual predictions from any machine learning model. It shows how much each feature contributes to pushing the prediction higher or lower from the baseline.</p>
+        
+        <div class="key-point">
+            <strong>Key Insight:</strong> SHAP values tell us not just what features are important, but HOW they influence each specific prediction.
+        </div>
+        
+        <h2>Understanding Different SHAP Plots</h2>
+        
+        <div class="plot-explanation">
+            <h3>1. SHAP Summary Plot (Bee Swarm Plot)</h3>
+            <p><strong>What it shows:</strong> Overall feature importance and impact distribution across all patients</p>
+            <p><strong>How to read it:</strong></p>
+            <ul>
+                <li>Features are ranked by importance (top to bottom)</li>
+                <li>Each dot represents one patient</li>
+                <li>Color shows feature value (red = high, blue = low)</li>
+                <li>Position on x-axis shows impact on prediction</li>
+            </ul>
+            <div class="example-box">
+                <strong>Example:</strong> If "Poverty Rate" shows red dots on the right, it means high poverty rates increase SDOH risk.
+            </div>
+        </div>
+        
+        <div class="plot-explanation">
+            <h3>2. SHAP Waterfall Plot</h3>
+            <p><strong>What it shows:</strong> How we arrived at a prediction for ONE specific patient</p>
+            <p><strong>How to read it:</strong></p>
+            <ul>
+                <li>Starts from baseline prediction (average for all patients)</li>
+                <li>Each bar shows how a feature pushes prediction up (red) or down (blue)</li>
+                <li>Final value is the patient's risk score</li>
+            </ul>
+            <div class="example-box">
+                <strong>Example:</strong> Patient starts at 6.6% baseline risk. Living in high poverty area (+3%), being young (+2%), but having stable housing (-1%) results in final risk of 10.6%.
+            </div>
+        </div>
+        
+        <div class="plot-explanation">
+            <h3>3. SHAP Dependence Plot</h3>
+            <p><strong>What it shows:</strong> Relationship between a feature's value and its impact</p>
+            <p><strong>How to read it:</strong></p>
+            <ul>
+                <li>X-axis: Feature value (e.g., age from 18-90)</li>
+                <li>Y-axis: SHAP value (impact on prediction)</li>
+                <li>Color: Often shows interaction with another feature</li>
+            </ul>
+            <div class="example-box">
+                <strong>Example:</strong> Shows that SDOH risk decreases with age, but the relationship is stronger in urban areas (shown by color).
+            </div>
+        </div>
+        
+        <div class="plot-explanation">
+            <h3>4. SHAP Force Plot</h3>
+            <p><strong>What it shows:</strong> Visual explanation of a single prediction</p>
+            <p><strong>How to read it:</strong></p>
+            <ul>
+                <li>Base value (left) to final prediction (right)</li>
+                <li>Red features push prediction higher</li>
+                <li>Blue features push prediction lower</li>
+                <li>Width shows magnitude of impact</li>
+            </ul>
+        </div>
+        
+        <h2>Why SHAP Matters for Healthcare</h2>
+        
+        <div class="key-point">
+            <h3>1. Transparency & Trust</h3>
+            <p>Clinicians can see exactly why a patient was flagged as high-risk, building confidence in AI recommendations.</p>
+        </div>
+        
+        <div class="key-point">
+            <h3>2. Actionable Insights</h3>
+            <p>Identifies specific factors driving risk for each patient, enabling targeted interventions.</p>
+        </div>
+        
+        <div class="key-point">
+            <h3>3. Bias Detection</h3>
+            <p>Reveals if the model relies too heavily on demographic factors vs. modifiable risk factors.</p>
+        </div>
+        
+        <div class="key-point">
+            <h3>4. Quality Improvement</h3>
+            <p>Helps identify which community-level factors most impact patient outcomes, guiding population health strategies.</p>
+        </div>
+        
+        <h2>Practical Applications</h2>
+        
+        <h3>For Individual Patients:</h3>
+        <ul>
+            <li>Explain to patients why they were selected for screening</li>
+            <li>Identify modifiable risk factors for intervention</li>
+            <li>Guide care planning based on specific drivers</li>
+        </ul>
+        
+        <h3>For Population Health:</h3>
+        <ul>
+            <li>Identify neighborhoods needing resources</li>
+            <li>Target community partnerships</li>
+            <li>Allocate preventive services efficiently</li>
+        </ul>
+        
+        <h3>For Quality Assurance:</h3>
+        <ul>
+            <li>Verify model uses appropriate factors</li>
+            <li>Ensure fairness across demographics</li>
+            <li>Monitor for unexpected patterns</li>
+        </ul>
+        
+        <div style="background-color: #d5e8d4; padding: 20px; border-radius: 8px; margin-top: 30px;">
+            <h3 style="margin-top: 0;">✅ Key Takeaway</h3>
+            <p>SHAP analysis transforms the AI "black box" into a transparent tool that provides clear, actionable explanations for each prediction. This enables clinicians to trust the model, understand individual patient risks, and make informed intervention decisions.</p>
+        </div>
+    </div>
+</body>
+</html>

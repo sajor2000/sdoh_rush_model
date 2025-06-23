@@ -1,91 +1,135 @@
-# SDOH Risk Screening Model
+# SDOH Risk Screening Model - Publication Version
+
+[![DOI](https://img.shields.io/badge/DOI-10.xxxx%2Fxxxx-blue)](https://doi.org/10.xxxx/xxxx)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 ## Overview
-This repository contains a production-ready machine learning model for identifying patients at risk for social determinants of health (SDOH) needs. The model uses XGBoost with calibration to predict which patients are likely to have 2 or more social needs.
 
-## Model Performance
-- **AUC:** 0.765
-- **Sensitivity:** 72.2% (at 5% threshold)
-- **Specificity:** 66.8%
-- **PPV:** 13.8% (2.1x better than baseline)
-- **Calibration Error:** 0.028 (excellent)
+Production-ready machine learning model for identifying patients at risk for social determinants of health (SDOH) needs. Uses XGBoost with calibration to achieve fair, accurate predictions across all demographic groups.
 
-## Key Features
-- Fair across all demographic groups (age, sex, race, ethnicity)
-- Uses CDC Social Vulnerability Index (SVI) and Area Deprivation Index (ADI)
-- Optimized thresholds for different clinical settings
-- Production-ready with built-in explanations
+## Model Performance (Test Set, n=78,745)
 
-## Data Setup
+- **AUC**: 0.765
+- **Sensitivity**: 72.2% (at 5% threshold)
+- **Specificity**: 67.9%
+- **PPV**: 13.8%
+- **Calibration Error**: 0.008 (excellent)
+- **Fairness**: Verified across age, sex, race, ethnicity
 
-**Important**: The data file is not included in this repository for privacy reasons. 
+## Repository Structure
 
-To use the training scripts:
-1. Obtain the data file `sdoh2_ml_final_all_svi.csv`
-2. Either:
-   - Set the environment variable: `export SDOH_DATA_PATH=/path/to/your/sdoh2_ml_final_all_svi.csv`
-   - Or update the `DATA_PATH` in `config.py` to point to your local data file
+```
+├── src/                          # Core production code
+│   ├── sdoh_risk_screener.py    # Main model class
+│   ├── config.py                # Configuration
+│   └── utils.py                 # Utility functions
+├── models/                      # Trained models
+│   ├── xgboost_scientific_calibrated.joblib
+│   └── scientific_model_metadata.json
+├── scripts/                     # Analysis scripts
+│   ├── train_scientifically_correct.py
+│   ├── comprehensive_fairness_analysis.py
+│   ├── generate_tripod_figures_jama.py
+│   └── generate_table1_jama.py
+├── results/                     # Generated outputs
+│   ├── figures/jama/           # TRIPOD-AI figures
+│   ├── figures/publication/    # Additional figures
+│   ├── reports/               # Analysis reports
+│   └── tables/                # Publication tables
+├── docs/                       # Documentation
+├── index.html                  # Executive report
+└── requirements.txt            # Dependencies
+```
 
 ## Quick Start
 
-```python
-from sdoh_risk_screener import SDOHRiskScreener
-
-# Initialize the screener
-screener = SDOHRiskScreener()
-
-# Load patient data (requires demographics + SVI/ADI features)
-patient_data = pd.read_csv('your_patient_data.csv')
-
-# Get risk predictions
-results = screener.predict_risk(patient_data)
-
-# For geriatric populations (65+), use adjusted threshold
-senior_results = screener.predict_risk(senior_data, use_geriatric_threshold=True)
-```
-
-## Installation
-
 ```bash
+# Clone repository
+git clone https://github.com/sajor2000/sdoh_rush_model.git
+cd sdoh_rush_model
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Use the model
+from src.sdoh_risk_screener import SDOHRiskScreener
+
+screener = SDOHRiskScreener()
+results = screener.predict_risk(patient_data)
 ```
 
-## Model Files
-- `models/xgboost_scientific_calibrated.joblib` - Calibrated production model
-- `models/scientific_model_metadata.json` - Model metadata and feature names
+## Data Requirements
 
-## Fairness & Bias
-The model has been extensively tested for fairness:
-- Statistical parity difference < 10% across all groups
-- Equal opportunity difference < 10% across all groups  
-- Disparate impact ratio > 0.8 for all groups
+The model requires patient demographics and census tract linkage to:
+- CDC Social Vulnerability Index (SVI) data
+- Area Deprivation Index (ADI) data
 
-## Clinical Integration
-Recommended integration points:
-- Primary care annual visits
-- Hospital discharge planning
-- Emergency department screening
-- Geriatric assessments
+## Thresholds for Different Settings
 
-## Threshold Recommendations
-- **General Population:** 5.0% (screens 34.8%, PPV 13.8%)
-- **Geriatric Clinics:** 8.4% (screens 7.7%, PPV 19.5%)
-- **High Sensitivity:** 3.0% (screens 52.3%, PPV 10.7%)
-- **Resource-Limited:** 8.0% (screens 18.5%, PPV 18.4%)
+- **General Population**: 5.0% (screens 34.8%, PPV 13.8%)
+- **Geriatric Clinics (65+)**: 8.4% (screens 7.7%, PPV 19.5%)
 
-## Contributing
-See CONTRIBUTING.md for guidelines on model updates and validation requirements.
+## Reproducibility
 
-## License
-MIT License - See LICENSE file for details.
+All analyses use:
+- Fixed random seed (2025)
+- Proper 60/20/20 train/validation/test split
+- TRIPOD-AI compliant methodology
+- No data leakage
+
+## Files for Paper Submission
+
+### Main Figures (JAMA Format)
+- `results/figures/jama/figure1_model_performance.png`
+- `results/figures/jama/figure2_feature_importance.png`
+- `results/figures/jama/figure3_subgroup_performance.png`
+- `results/figures/jama/figure4_decision_curve.png`
+
+### Tables
+- `results/tables/table1_jama.tex` (LaTeX format)
+- `results/tables/table1_jama.csv` (Data format)
+
+### Supplementary Materials
+- `results/reports/fairness_metrics_summary.csv`
+- `results/reports/comprehensive_fairness_report.txt`
+- `TRIPOD_AI_COMPLIANCE_REPORT.md`
+
+## Model Training
+
+To retrain the model:
+```bash
+python scripts/train_scientifically_correct.py
+```
+
+## Fairness Analysis
+
+To reproduce fairness analysis:
+```bash
+python scripts/comprehensive_fairness_analysis.py
+```
 
 ## Citation
-If using this model in research, please cite:
-```
-[Your Organization] SDOH Risk Screening Model v2.0. 
-Available at: https://github.com/[your-org]/sdoh-risk-model
+
+```bibtex
+@article{sdoh_risk_model_2024,
+  title={AI-Powered Social Determinants of Health Screening: A Fair and Accurate Model for Clinical Implementation},
+  author={[Your Name] and [Co-authors]},
+  journal={[Journal Name]},
+  year={2024},
+  doi={10.xxxx/xxxx}
+}
 ```
 
+## License
+
+MIT License - See LICENSE file for details.
+
 ## Contact
-- Technical Questions: data-science@[your-org].org
-- Clinical Questions: population-health@[your-org].org
+
+For questions about implementation or research collaboration:
+- Technical: [your-email@institution.edu]
+- Clinical: [clinical-contact@institution.edu]
+
+---
+*Model Version 2.0 | TRIPOD-AI Compliant | Publication Ready*

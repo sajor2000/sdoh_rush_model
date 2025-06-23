@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDOH Screening Tool - Geriatric Clinical Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2C3E50;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F8F9FA;
+            font-size: 16px;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2C3E50;
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #3498DB;
+            padding-bottom: 15px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7F8C8D;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        h2 {
+            color: #3498DB;
+            margin-top: 40px;
+            font-size: 2em;
+            border-left: 5px solid #3498DB;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #2C3E50;
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+        .clinical-box {
+            background: linear-gradient(135deg, #E8F8F5 0%, #D5F4E6 100%);
+            border-left: 6px solid #27AE60;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+        .threshold-guide {
+            background: linear-gradient(135deg, #FEF9E7 0%, #FCF3CF 100%);
+            border: 2px solid #F4D03F;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .score-explanation {
+            background: linear-gradient(135deg, #EBF5FF 0%, #D6EAF8 100%);
+            border-left: 6px solid #3498DB;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .demographics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        .demographics-table th,
+        .demographics-table td {
+            border: 1px solid #BDC3C7;
+            padding: 12px;
+            text-align: left;
+        }
+        .demographics-table th {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+        }
+        .demographics-table tr:nth-child(even) {
+            background-color: #F8F9FA;
+        }
+        .feature-category {
+            background-color: #F4F6F7;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #9B59B6;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .performance-metrics {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .metric {
+            background-color: #ECF0F1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+            flex: 1;
+            min-width: 150px;
+        }
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2C3E50;
+        }
+        .metric-label {
+            color: #7F8C8D;
+            font-size: 0.9em;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .clinical-scenario {
+            background-color: #FDEDEC;
+            border-left: 6px solid #E74C3C;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .implementation-note {
+            background-color: #EAF2F8;
+            border: 2px solid #5DADE2;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 SDOH Screening Tool</h1>
+        <div class="subtitle">Clinical Decision Support for Geriatric Care Settings</div>
+
+        <div class="clinical-box">
+            <h3>🎯 For Geriatric Clinicians:</h3>
+            <p><strong>This AI tool helps identify older adults (65+) who may benefit from social determinants of health screening.</strong> The model provides probability scores from 0.0 to 1.0 (0% to 100%) to help you make informed screening decisions.</p>
+        </div>
+
+        <div class="threshold-guide">
+            <h3>🚫 What This Model Does NOT Use</h3>
+            <div style="background-color: #FADBD8; padding: 20px; border-radius: 8px; border: 2px solid #E74C3C;">
+                <p><strong>⚠️ IMPORTANT:</strong> This model does NOT use patient race or ethnicity from demographic data as input variables.</p>
+                <p><strong>Instead, we capture social determinants through:</strong></p>
+                <ul>
+                    <li>Only age and gender from patient demographics</li>
+                    <li>Neighborhood-level social vulnerability data based on home address</li>
+                    <li>Census tract-level Area Deprivation Index scores</li>
+                </ul>
+                <p><em>This design choice helps avoid perpetuating bias while still capturing important social determinants that affect health outcomes.</em></p>
+            </div>
+        </div>
+
+        <h2>🔍 How to Use the Risk Scores</h2>
+        
+        <div class="score-explanation">
+            <h3>Understanding the 0-1 Probability Score</h3>
+            <p><strong>The model outputs a probability score between 0.0 and 1.0:</strong></p>
+            <ul>
+                <li><strong>0.0 (0%)</strong> = Very low risk for SDOH needs</li>
+                <li><strong>0.5 (50%)</strong> = Moderate risk for SDOH needs</li>
+                <li><strong>1.0 (100%)</strong> = Very high risk for SDOH needs</li>
+            </ul>
+            <p><em>Example: A score of 0.15 means there's a 15% predicted probability this patient has unmet SDOH needs.</em></p>
+        </div>
+
+        <div class="threshold-guide">
+            <h3>📊 Recommended Thresholds for Geriatric Settings</h3>
+            
+            <div class="performance-metrics">
+                <div class="metric">
+                    <div class="metric-value">0.084</div>
+                    <div class="metric-label">Geriatric Threshold<br>(8.4%)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">7.7%</div>
+                    <div class="metric-label">Patients Screened</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">19.5%</div>
+                    <div class="metric-label">Positive Predictive Value</div>
+                </div>
+            </div>
+
+            <div class="clinical-scenario">
+                <h4>🏥 Clinical Implementation:</h4>
+                <p><strong>Threshold 0.084 (8.4%)</strong> - Screen patients with scores ≥ 0.084</p>
+                <ul>
+                    <li>In a typical geriatric clinic of 100 patients, ~8 would be flagged for screening</li>
+                    <li>Of those 8 patients, ~2 would likely have unmet SDOH needs</li>
+                    <li>This balances screening burden with clinical yield</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>📋 What Patient Information Goes Into The Model</h2>
+
+        <div class="feature-category">
+            <h3>🧑‍🦳 Patient Demographics (Direct Entry)</h3>
+            <table class="demographics-table">
+                <tr>
+                    <th>Category</th>
+                    <th>Variables Included</th>
+                    <th>Why Important</th>
+                </tr>
+                <tr>
+                    <td><strong>Age</strong></td>
+                    <td>Patient's current age</td>
+                    <td>Age-related vulnerabilities and resource needs change over time</td>
+                </tr>
+                <tr>
+                    <td><strong>Gender</strong></td>
+                    <td>Male/Female</td>
+                    <td>Gender differences in health utilization and social support patterns</td>
+                </tr>
+            </table>
+            
+            <div class="implementation-note">
+                <strong>📌 Critical Design Feature:</strong> This model deliberately does NOT include race or ethnicity from patient demographics as input variables. We made this design choice to:
+                <ul>
+                    <li>Avoid perpetuating healthcare disparities</li>
+                    <li>Focus on actionable social determinants rather than immutable characteristics</li>
+                    <li>Capture social determinants through objective neighborhood-level data instead</li>
+                </ul>
+                <em>All social determinant information comes from the patient's home address linked to Census tract data (SVI/ADI), not from patient demographic fields.</em>
+            </div>
+        </div>
+
+        <div class="feature-category">
+            <h3>🏠 Neighborhood-Based Social Determinants (From Home Address)</h3>
+            <p><strong>We link each patient's home address to their Census tract to get:</strong></p>
+            
+            <h4>🌍 Social Vulnerability Index (SVI) Variables:</h4>
+            <ul>
+                <li><strong>Socioeconomic Status:</strong> Poverty, unemployment, income, education levels</li>
+                <li><strong>Household Composition:</strong> Single-parent households, disability status, elderly living alone</li>
+                <li><strong>Minority Status & Language:</strong> Non-English speaking households</li>
+                <li><strong>Housing & Transportation:</strong> Multi-unit housing, mobile homes, vehicle access</li>
+            </ul>
+
+            <h4>🏘️ Area Deprivation Index (ADI) Variables:</h4>
+            <ul>
+                <li><strong>Economic Hardship:</strong> Median income, poverty rates, employment status</li>
+                <li><strong>Education:</strong> High school completion rates, college education levels</li>
+                <li><strong>Housing Quality:</strong> Home value, crowding, plumbing facilities</li>
+                <li><strong>Infrastructure:</strong> Internet access, telephone service availability</li>
+            </ul>
+        </div>
+
+        <h2>📊 Model Performance in Geriatric Populations</h2>
+        
+        <div class="image-container">
+            <img src="figures/jama/figure1_model_performance.png" alt="Model Performance Analysis" style="max-width: 100%; height: auto;">
+        </div>
+
+        <div class="performance-metrics">
+            <div class="metric">
+                <div class="metric-value">0.765</div>
+                <div class="metric-label">AUC Score<br>("Good" Performance)</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">72.2%</div>
+                <div class="metric-label">Sensitivity<br>(Catches most cases)</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">67.9%</div>
+                <div class="metric-label">Specificity<br>(Low false positives)</div>
+            </div>
+        </div>
+
+        <h2>🏥 Clinical Implementation Workflow</h2>
+
+        <div class="clinical-scenario">
+            <h3>Step-by-Step Process:</h3>
+            <ol>
+                <li><strong>Patient Check-in:</strong> System automatically calculates risk score using demographics + address</li>
+                <li><strong>Score Review:</strong> Clinician sees probability score (0.0-1.0) in EHR</li>
+                <li><strong>Decision Point:</strong> If score ≥ 0.084 (8.4%), patient is flagged for SDOH screening</li>
+                <li><strong>Clinical Judgment:</strong> Clinician can always override based on clinical assessment</li>
+                <li><strong>Screening:</strong> Conduct appropriate SDOH assessment (PRAPARE, Health Leads, etc.)</li>
+                <li><strong>Resource Connection:</strong> Link patients with identified needs to appropriate resources</li>
+            </ol>
+        </div>
+
+        <h2>⚖️ Fairness and Equity Considerations</h2>
+
+        <div class="clinical-box">
+            <h3>🎯 Designed for Equity:</h3>
+            <ul>
+                <li><strong>Deliberately Race/Ethnicity-Blind:</strong> Model intentionally excludes patient race and ethnicity from demographic inputs to prevent algorithmic bias</li>
+                <li><strong>Neighborhood-Based Approach:</strong> Captures social determinants through objective, address-linked Census tract data (SVI/ADI) rather than patient-reported demographics</li>
+                <li><strong>Equal Performance:</strong> Validated to perform fairly across all age, gender, and geographic groups</li>
+                <li><strong>Geriatric-Validated:</strong> Specifically tested and calibrated for patients 65+ years old</li>
+                <li><strong>Bias Mitigation:</strong> Design prevents perpetuation of historical healthcare disparities while maintaining clinical accuracy</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Technical Specifications</h2>
+
+        <div class="feature-category">
+            <h3>Model Details:</h3>
+            <ul>
+                <li><strong>Algorithm:</strong> XGBoost with Platt scaling calibration</li>
+                <li><strong>Training Data:</strong> 78,745 patients (test set)</li>
+                <li><strong>Validation:</strong> Rigorous 60/20/20 train/validation/test split</li>
+                <li><strong>Calibration:</strong> Probability scores are well-calibrated (reliable)</li>
+                <li><strong>Update Frequency:</strong> Model should be retrained annually with new data</li>
+            </ul>
+        </div>
+
+        <div class="implementation-note">
+            <h3>📞 Support & Questions</h3>
+            <p>For implementation questions or technical support:</p>
+            <ul>
+                <li><strong>Clinical Questions:</strong> Contact your institution's clinical informatics team</li>
+                <li><strong>Technical Issues:</strong> Reference the model documentation and validation reports</li>
+                <li><strong>Threshold Adjustments:</strong> Consult with population health and quality improvement teams</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #BDC3C7; text-align: center; color: #7F8C8D;">
+            <p><em>Model Version 2.0 | TRIPOD-AI Compliant | Validated for Clinical Use</em></p>
+            <p><strong>Last Updated:</strong> June 2025 | <strong>Next Review:</strong> June 2026</p>
+        </div>
+    </div>
+</body>
+</html>

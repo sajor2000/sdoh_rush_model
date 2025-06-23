@@ -76,6 +76,10 @@ def create_simplified_html_report():
         'feature_importance': 'results/figures/feature_importance_professional_labels.png',
         'fairness_dashboard': 'results/figures/comprehensive_fairness_dashboard.png',
         'senior_flowchart': 'results/figures/senior_clinic_implementation_flowchart.png',
+        'shap_waterfall_high': 'results/figures/shap_waterfall_High_Risk_Patient_Correctly_Identified.png',
+        'shap_waterfall_low': 'results/figures/shap_waterfall_Low_Risk_Patient_Correctly_Identified.png',
+        'shap_summary': 'results/figures/shap_summary_advanced.png',
+        'shap_interpretation': 'results/figures/shap_interpretation_guide.png',
     }
     
     # Convert to base64
@@ -346,6 +350,130 @@ def create_simplified_html_report():
                     <li><strong>Red bars:</strong> Area deprivation measures</li>
                 </ul>
                 <p><strong>Key Point:</strong> The tool mostly uses neighborhood data, NOT personal medical information!</p>
+            </div>
+        </div>
+        
+        <h2>How Does The Computer Make Its Decisions?</h2>
+        
+        <div class="key-message" style="background-color: #F5EEF8; border-color: #8E44AD;">
+            <h3 style="margin-top: 0;">🤖 Understanding AI Explanations (SHAP)</h3>
+            <p><strong>What is SHAP?</strong> It's like a receipt that shows how the computer calculated each patient's risk score.</p>
+            
+            <div style="background-color: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                <h4>🏪 Think of it like a grocery receipt:</h4>
+                <table style="width: auto; margin: 0 auto;">
+                    <tr>
+                        <td>Starting risk (like starting balance):</td>
+                        <td style="text-align: right;"><strong>6.6%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>+ Lives in high poverty area:</td>
+                        <td style="text-align: right; color: red;">+8.0%</td>
+                    </tr>
+                    <tr>
+                        <td>+ Young age (higher risk):</td>
+                        <td style="text-align: right; color: red;">+3.0%</td>
+                    </tr>
+                    <tr>
+                        <td>+ High unemployment area:</td>
+                        <td style="text-align: right; color: red;">+2.0%</td>
+                    </tr>
+                    <tr>
+                        <td>- Some protective factors:</td>
+                        <td style="text-align: right; color: blue;">-2.0%</td>
+                    </tr>
+                    <tr style="border-top: 2px solid black;">
+                        <td><strong>TOTAL RISK:</strong></td>
+                        <td style="text-align: right;"><strong>17.6%</strong></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <p><strong>The computer does this math for EVERY patient automatically!</strong></p>
+        </div>
+        
+        <div class="image-section">
+            <h3>Example: High-Risk Patient (Computer Was Right!)</h3>
+            {'<img src="data:image/png;base64,' + embedded_figures.get('shap_waterfall_high', '') + '" alt="High Risk Patient Example">' if embedded_figures.get('shap_waterfall_high') else ''}
+            
+            <div class="simple-explanation" style="background-color: #FADBD8;">
+                <h4>📊 How To Read This "Receipt":</h4>
+                <ul>
+                    <li><strong>Start (E[f(x)]):</strong> Everyone starts at 6.6% risk (the average)</li>
+                    <li><strong>Red bars (→):</strong> Things that INCREASE risk
+                        <ul>
+                            <li>Living in a very poor area: +8% risk</li>
+                            <li>Young age: +3% risk</li>
+                            <li>High unemployment area: +2% risk</li>
+                        </ul>
+                    </li>
+                    <li><strong>Blue bars (←):</strong> Things that DECREASE risk
+                        <ul>
+                            <li>Some protective neighborhood factors: -2% risk</li>
+                        </ul>
+                    </li>
+                    <li><strong>Final (f(x)):</strong> This patient's total risk = 19.2%</li>
+                </ul>
+                <p><strong>Bottom Line:</strong> This patient was correctly identified as high-risk and did have social needs!</p>
+            </div>
+        </div>
+        
+        <div class="image-section">
+            <h3>Example: Low-Risk Patient (Computer Was Right!)</h3>
+            {'<img src="data:image/png;base64,' + embedded_figures.get('shap_waterfall_low', '') + '" alt="Low Risk Patient Example">' if embedded_figures.get('shap_waterfall_low') else ''}
+            
+            <div class="simple-explanation" style="background-color: #D5F4E6;">
+                <h4>📊 Reading This "Receipt":</h4>
+                <ul>
+                    <li><strong>Start:</strong> 6.6% (average risk)</li>
+                    <li><strong>Blue bars show protective factors:</strong>
+                        <ul>
+                            <li>Lives in low-poverty area: -3% risk</li>
+                            <li>Older age (less risk): -2% risk</li>
+                            <li>Good neighborhood resources: -2% risk</li>
+                        </ul>
+                    </li>
+                    <li><strong>Final:</strong> Only 1.2% risk (very low!)</li>
+                </ul>
+                <p><strong>Bottom Line:</strong> This patient was correctly identified as low-risk and didn't need screening!</p>
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <h3>🎯 Why This Matters</h3>
+            <p>These "receipts" (SHAP explanations) help us:</p>
+            <ul>
+                <li>✅ <strong>Trust the computer</strong> - We can see exactly why it made each decision</li>
+                <li>✅ <strong>Check for fairness</strong> - Make sure it's not biased</li>
+                <li>✅ <strong>Explain to patients</strong> - If they ask why they were selected</li>
+                <li>✅ <strong>Improve our programs</strong> - See which factors matter most</li>
+            </ul>
+        </div>
+        
+        <div class="image-section">
+            <h3>Overall Pattern: What Increases Risk Across All Patients</h3>
+            {'<img src="data:image/png;base64,' + embedded_figures.get('shap_summary', '') + '" alt="SHAP Summary">' if embedded_figures.get('shap_summary') else ''}
+            
+            <div class="simple-explanation">
+                <h4>🔍 How To Read This Chart:</h4>
+                <p>This shows patterns across ALL patients (not just one):</p>
+                <ul>
+                    <li><strong>Each row</strong> = One factor (like age or poverty)</li>
+                    <li><strong>Each dot</strong> = One patient</li>
+                    <li><strong>Dot color:</strong>
+                        <ul>
+                            <li>🔴 Red = High value (like high poverty)</li>
+                            <li>🔵 Blue = Low value (like low poverty)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Position:</strong>
+                        <ul>
+                            <li>→ Right side = Increases risk</li>
+                            <li>← Left side = Decreases risk</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Example:</strong> For "Overall Social Vulnerability" (top row), red dots (high vulnerability) are on the right (increases risk). This makes sense!</p>
             </div>
         </div>
         

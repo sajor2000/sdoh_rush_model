@@ -1,0 +1,86 @@
+{
+  "created_date": "2025-06-23T08:40:35.597859",
+  "random_seed": 2025,
+  "split_ratios": "60/20/20 (train/validation/test)",
+  "target_column": "sdoh_two_yes",
+  "dataset_sizes": {
+    "full": 393725,
+    "train": 157490,
+    "validation": 78745,
+    "test": 78745
+  },
+  "feature_columns": [
+    "age_at_survey",
+    "sex_female",
+    "rpl_themes",
+    "rpl_theme1",
+    "rpl_theme2",
+    "rpl_theme3",
+    "rpl_theme4",
+    "ep_pov150",
+    "ep_unemp",
+    "ep_hburd",
+    "ep_nohsdp",
+    "ep_uninsur",
+    "ep_age65",
+    "ep_age17",
+    "ep_disabl",
+    "ep_sngpnt",
+    "ep_limeng",
+    "ep_minrty",
+    "ep_munit",
+    "ep_mobile",
+    "ep_crowd",
+    "ep_noveh",
+    "ep_groupq",
+    "epl_pov150",
+    "epl_unemp",
+    "epl_hburd",
+    "epl_nohsdp",
+    "epl_uninsur",
+    "epl_age65",
+    "epl_age17",
+    "epl_disabl",
+    "epl_sngpnt",
+    "epl_limeng",
+    "epl_minrty",
+    "epl_munit",
+    "epl_mobile",
+    "epl_crowd",
+    "epl_noveh",
+    "epl_groupq",
+    "adi_natrank",
+    "adi_staternk",
+    "fin_class_managed_care",
+    "fin_class_blue_cross",
+    "fin_class_medicare",
+    "fin_class_medicaid",
+    "fin_class_other"
+  ],
+  "excluded_columns": [
+    "race_category",
+    "ethnicity_category"
+  ],
+  "target_distribution": {
+    "full": {
+      "no_sdoh_need": 367621,
+      "sdoh_need": 26104,
+      "prevalence": 0.06630008254492349
+    },
+    "train": {
+      "no_sdoh_need": 147049,
+      "sdoh_need": 10441,
+      "prevalence": 0.06629627277922408
+    },
+    "validation": {
+      "no_sdoh_need": 73524,
+      "sdoh_need": 5221,
+      "prevalence": 0.06630262238872309
+    },
+    "test": {
+      "no_sdoh_need": 73524,
+      "sdoh_need": 5221,
+      "prevalence": 0.06630262238872309
+    }
+  }
+}

@@ -116,8 +116,12 @@ data/*.xlsx
 data/*.json
 data/*.pkl
 data/*.joblib
+data/**/*.csv
+data/**/*.pkl
 !data/README.md
 !data/.gitkeep
+!data/CORRECTIONS_LOG.md
+!data/dataset_metadata.json
 
 # Model files (large files)
 *.h5

@@ -60,20 +60,28 @@ def load_model_and_test_data():
     data_path = '/Users/jcrmacstudio/Desktop/vebe coding/SDOH_model/sdoh2_ml_final_all_svi.csv'
     df = pd.read_csv(data_path)
     
-    # Get test set (last 20%)
-    np.random.seed(2025)
-    n_total = len(df)
-    n_test = int(n_total * 0.2)
-    test_indices = df.index[-n_test:]
-    
-    df_test = df.iloc[test_indices].copy()
-    
+    # Use EXACT same split as training script to match test metrics
     feature_cols = [col for col in df.columns if col not in 
                    ['person_id', 'payor_id', 'mbi_id', 'sdoh_two_yes',
                     'race_category', 'ethnicity_category']]
     
-    X_test = df_test[feature_cols]
-    y_test = df_test['sdoh_two_yes']
+    X = df[feature_cols]
+    y = df['sdoh_two_yes']
+    
+    # EXACT same 60/20/20 split as training script
+    from sklearn.model_selection import train_test_split
+    np.random.seed(2025)  # RANDOM_SEED from config
+    
+    # First split off 20% for test
+    X_temp, X_test, y_temp, y_test = train_test_split(
+        X, y, test_size=0.2, stratify=y, random_state=2025
+    )
+    # Then split remaining 80% into 60% train, 20% validation  
+    X_train, X_val, y_train, y_val = train_test_split(
+        X_temp, y_temp, test_size=0.25, stratify=y_temp, random_state=2025
+    )
+    
+    print(f"   Test set: {len(X_test):,} samples (matches training script)")
     
     return model, base_model, X_test, y_test, metadata, feature_cols
 

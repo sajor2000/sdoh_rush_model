@@ -161,7 +161,21 @@
 
         <div class="clinical-box">
             <h3>🎯 For Geriatric Clinicians:</h3>
-            <p><strong>This AI tool helps identify older adults (65+) who may benefit from social determinants of health screening.</strong> The model provides probability scores from 0.0 to 1.0 (0% to 100%) to help you make informed screening decisions.</p>
+            <p><strong>This AI tool helps identify older adults (65+) who may benefit from social determinants of health (SDOH) screening.</strong></p>
+            
+            <div style="background-color: #F0F9FF; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                <h4>📚 What are SDOH?</h4>
+                <p>Social determinants of health are conditions like housing, food security, transportation, and income that affect health outcomes. Examples include:</p>
+                <ul style="margin: 10px 0;">
+                    <li>Difficulty paying for medications due to cost</li>
+                    <li>Lack of transportation to medical appointments</li>
+                    <li>Food insecurity or poor nutrition access</li>
+                    <li>Unsafe or unstable housing situations</li>
+                    <li>Social isolation or lack of support</li>
+                </ul>
+            </div>
+            
+            <p>The model provides <strong>probability scores from 0.0 to 1.0 (0% to 100%)</strong> to help you decide which patients would benefit most from SDOH screening.</p>
         </div>
 
         <div class="threshold-guide">
@@ -185,10 +199,19 @@
             <p><strong>The model outputs a probability score between 0.0 and 1.0:</strong></p>
             <ul>
                 <li><strong>0.0 (0%)</strong> = Very low risk for SDOH needs</li>
+                <li><strong>0.084 (8.4%)</strong> = Geriatric screening threshold</li>
                 <li><strong>0.5 (50%)</strong> = Moderate risk for SDOH needs</li>
                 <li><strong>1.0 (100%)</strong> = Very high risk for SDOH needs</li>
             </ul>
-            <p><em>Example: A score of 0.15 means there's a 15% predicted probability this patient has unmet SDOH needs.</em></p>
+            
+            <div style="background-color: #E8F5E8; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                <h4>🔍 Clinical Examples:</h4>
+                <ul>
+                    <li><strong>Score 0.03 (3%)</strong> - 85-year-old with Medicare, stable housing, suburban address → <em>Low priority for screening</em></li>
+                    <li><strong>Score 0.12 (12%)</strong> - 72-year-old with Medicaid, lives in high-poverty area → <em>Recommend SDOH screening</em></li>
+                    <li><strong>Score 0.25 (25%)</strong> - 68-year-old, uninsured, high area deprivation → <em>High priority for comprehensive SDOH assessment</em></li>
+                </ul>
+            </div>
         </div>
 
         <div class="threshold-guide">

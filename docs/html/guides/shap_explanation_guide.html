@@ -54,10 +54,16 @@
 <body>
     <div class="container">
         <h1>Understanding SHAP (SHapley Additive exPlanations) Analysis</h1>
-        <p style="font-size: 1.1em; color: #666;">A Guide for Healthcare Executives</p>
+        <p style="font-size: 1.1em; color: #666;">A Guide for Healthcare Professionals</p>
         
-        <h2>What is SHAP?</h2>
-        <p>SHAP is a method to explain individual predictions from any machine learning model. It shows how much each feature contributes to pushing the prediction higher or lower from the baseline.</p>
+        <h2>What is SHAP? (In Simple Terms)</h2>
+        <p><strong>SHAP helps us understand "why" the AI model made a specific prediction for each patient.</strong></p>
+        
+        <p>Think of it like this: When a doctor makes a diagnosis, they can explain their reasoning: "This patient has diabetes risk because of their age, family history, and weight." SHAP does the same thing for AI models - it shows which factors pushed the risk score up or down for each individual patient.</p>
+        
+        <div class="key-point">
+            <strong>Key Benefit:</strong> SHAP turns "black box" AI into transparent, explainable decisions that clinicians can understand and trust.
+        </div>
         
         <div class="key-point">
             <strong>Key Insight:</strong> SHAP values tell us not just what features are important, but HOW they influence each specific prediction.
@@ -76,7 +82,7 @@
                 <li>Position on x-axis shows impact on prediction</li>
             </ul>
             <div class="example-box">
-                <strong>Example:</strong> If "Poverty Rate" shows red dots on the right, it means high poverty rates increase SDOH risk.
+                <strong>Clinical Example:</strong> If "Area Deprivation Index" shows red dots on the right, it means patients living in more deprived neighborhoods have higher SDOH risk. This makes clinical sense - areas with limited resources often have residents with more unmet social needs.
             </div>
         </div>
         
@@ -90,7 +96,15 @@
                 <li>Final value is the patient's risk score</li>
             </ul>
             <div class="example-box">
-                <strong>Example:</strong> Patient starts at 6.6% baseline risk. Living in high poverty area (+3%), being young (+2%), but having stable housing (-1%) results in final risk of 10.6%.
+                <strong>Clinical Example:</strong> 
+                <br><strong>72-year-old patient:</strong>
+                <br>• Baseline risk: 6.6% (average for all patients)
+                <br>• Lives in high-deprivation area: +4.2% (increases risk)
+                <br>• Has Medicaid insurance: +2.1% (increases risk)  
+                <br>• Age 72 (vs average): +1.5% (increases risk)
+                <br>• Female gender: -0.8% (decreases risk)
+                <br><strong>Final predicted risk: 13.6%</strong>
+                <br><em>→ Recommend SDOH screening (above 8.4% threshold)</em>
             </div>
         </div>
         

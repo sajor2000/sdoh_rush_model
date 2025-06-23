@@ -1,0 +1,5 @@
+# GitHub Pages Configuration
+title: SDOH Risk Screening Model
+description: AI-powered tool for identifying patients with social determinants of health needs
+theme: jekyll-theme-minimal
+show_downloads: true

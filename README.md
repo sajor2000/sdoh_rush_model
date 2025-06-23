@@ -132,4 +132,4 @@ For questions about implementation or research collaboration:
 - Clinical: [clinical-contact@institution.edu]
 
 ---
-*Model Version 2.0 | TRIPOD-AI Compliant | Publication Ready*
+*Model Version 2.0 | TRIPOD-AI Compliant | Publication Ready | All HTML Links Functional*

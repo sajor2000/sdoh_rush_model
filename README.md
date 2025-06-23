@@ -20,27 +20,37 @@ Production-ready machine learning model for identifying patients at risk for soc
 ## Repository Structure
 
 ```
-├── src/                          # Core production code
-│   ├── sdoh_risk_screener.py    # Main model class
-│   ├── config.py                # Configuration
-│   └── utils.py                 # Utility functions
-├── models/                      # Trained models
+├── src/                        # Core production code
+│   ├── sdoh_risk_screener.py  # Main model class
+│   ├── config.py              # Configuration
+│   └── utils.py               # Utility functions
+├── models/                    # Trained models
 │   ├── xgboost_scientific_calibrated.joblib
 │   └── scientific_model_metadata.json
-├── scripts/                     # Analysis scripts
-│   ├── train_scientifically_correct.py
-│   ├── comprehensive_fairness_analysis.py
-│   ├── generate_tripod_figures_jama.py
-│   └── generate_table1_jama.py
-├── results/                     # Generated outputs
-│   ├── figures/jama/           # TRIPOD-AI figures
-│   ├── figures/publication/    # Additional figures
-│   ├── reports/               # Analysis reports
-│   └── tables/                # Publication tables
-├── docs/                       # Documentation
-├── index.html                  # Executive report
-└── requirements.txt            # Dependencies
+├── scripts/                   # Analysis scripts (organized by purpose)
+│   ├── training/              # Model training scripts
+│   ├── evaluation/            # Model evaluation scripts
+│   ├── visualization/         # Figure generation scripts
+│   └── utilities/             # Utility scripts
+├── results/                   # Generated outputs
+│   ├── figures/               # Visualizations
+│   │   ├── jama/             # TRIPOD-AI publication figures
+│   │   └── risk_histograms/  # Risk distribution plots
+│   ├── reports/              # Analysis reports
+│   └── tables/               # Publication tables
+├── docs/                     # Documentation
+│   ├── html/                 # HTML documentation
+│   │   ├── reports/          # Executive reports
+│   │   ├── guides/           # Clinical guides
+│   │   └── interactive/      # Interactive visualizations
+│   └── INDEX.md              # Documentation index
+├── data/                     # Dataset storage (excluded from git)
+└── requirements.txt          # Dependencies
 ```
+
+## 📚 Documentation
+
+See [docs/INDEX.md](docs/INDEX.md) for a comprehensive guide to all documentation.
 
 ## Quick Start
 

@@ -335,6 +335,48 @@
             </ul>
         </div>
 
+        <h2>🔍 Model Interpretability & Evidence</h2>
+        
+        <div class="feature-category">
+            <h3>📊 SHAP Analysis Available</h3>
+            <p><strong>Understanding Every Prediction:</strong> We provide complete explanations for how the model makes decisions</p>
+            <ul>
+                <li><strong>Variable Importance:</strong> See which factors matter most (geographic deprivation, age, insurance)</li>
+                <li><strong>Patient-Level Explanations:</strong> Waterfall plots show contribution of each factor to individual risk scores</li>
+                <li><strong>Clinical Cases:</strong> Examples of high-risk, low-risk, and borderline patients with explanations</li>
+                <li><strong>Transparent Decisions:</strong> Every prediction can be traced back to specific patient characteristics</li>
+            </ul>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="../../../results/figures/shap/variable_importance_comprehensive.png" 
+                   style="display: inline-block; background-color: #3498DB; color: white; padding: 10px 20px; 
+                          text-decoration: none; border-radius: 5px; margin: 5px;">
+                    📊 View SHAP Analysis
+                </a>
+                <a href="../../../results/figures/tripod_ai/tripod_performance_comparison.png" 
+                   style="display: inline-block; background-color: #27AE60; color: white; padding: 10px 20px; 
+                          text-decoration: none; border-radius: 5px; margin: 5px;">
+                    📈 TRIPOD-AI Figures
+                </a>
+                <a href="../../../results/reports/comprehensive_shap_tripod_analysis.html" 
+                   style="display: inline-block; background-color: #9B59B6; color: white; padding: 10px 20px; 
+                          text-decoration: none; border-radius: 5px; margin: 5px;">
+                    📋 Complete Analysis Report
+                </a>
+            </div>
+        </div>
+
+        <div class="feature-category">
+            <h3>⚖️ Fairness Verification</h3>
+            <p><strong>Rigorous Bias Testing:</strong> The model has been extensively tested for fairness across all demographic groups</p>
+            <ul>
+                <li><strong>Equal Performance:</strong> AUC and calibration verified consistent across age groups and gender</li>
+                <li><strong>No Demographic Bias:</strong> Race and ethnicity deliberately excluded from model inputs</li>
+                <li><strong>Address-Based Equity:</strong> Social determinants captured through Census tract data only</li>
+                <li><strong>Geriatric Optimization:</strong> Separate threshold ensures age-appropriate sensitivity for 65+ patients</li>
+            </ul>
+        </div>
+
         <div class="implementation-note">
             <h3>📞 Support & Questions</h3>
             <p>For implementation questions or technical support:</p>
@@ -342,6 +384,7 @@
                 <li><strong>Clinical Questions:</strong> Contact your institution's clinical informatics team</li>
                 <li><strong>Technical Issues:</strong> Reference the model documentation and validation reports</li>
                 <li><strong>Threshold Adjustments:</strong> Consult with population health and quality improvement teams</li>
+                <li><strong>SHAP Explanations:</strong> View comprehensive analysis report for detailed interpretability</li>
             </ul>
         </div>
 

@@ -616,6 +616,77 @@
             </div>
         </div>
 
+        <!-- Model Interpretability & Analysis -->
+        <div class="section">
+            <h2>🔍 Model Interpretability & Analysis</h2>
+            
+            <div class="info">
+                <h3>📊 Comprehensive Analysis Available</h3>
+                <p>We've completed extensive model interpretability and clinical utility analysis to ensure transparency and clinical confidence:</p>
+            </div>
+
+            <h3>🎯 SHAP Analysis - Understanding Model Decisions</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Variable Importance Analysis:</h4>
+                    <ul>
+                        <li><strong>Top predictors:</strong> Geographic factors (ADI, SVI), age, insurance type</li>
+                        <li><strong>SHAP values:</strong> Individual patient explanations available</li>
+                        <li><strong>Feature interactions:</strong> Minimal, supporting interpretability</li>
+                        <li><strong>Clinical alignment:</strong> Results match established SDOH research</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Patient-Level Explanations:</h4>
+                    <ul>
+                        <li><strong>Waterfall plots:</strong> Show how each factor contributes to risk</li>
+                        <li><strong>Clinical cases:</strong> High, low, and borderline risk examples</li>
+                        <li><strong>Transparency:</strong> Every prediction can be explained</li>
+                        <li><strong>Trust building:</strong> Clinicians understand "why" behind scores</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>⚖️ Fairness & Bias Mitigation</h3>
+            <div class="success">
+                <h4>✅ Bias Prevention by Design:</h4>
+                <ul>
+                    <li><strong>Race/Ethnicity Excluded:</strong> Model deliberately does not use patient race or ethnicity</li>
+                    <li><strong>Address-Based SDOH:</strong> Social determinants captured through Census tract data only</li>
+                    <li><strong>Equal Performance:</strong> Verified across all age groups and gender categories</li>
+                    <li><strong>Geriatric Optimization:</strong> Separate threshold for 65+ patients ensures age-appropriate care</li>
+                </ul>
+            </div>
+
+            <h3>🏥 Dual Threshold Strategy</h3>
+            <div class="two-column">
+                <div>
+                    <h4>General Hospital Settings:</h4>
+                    <ul>
+                        <li><strong>Threshold:</strong> 5.7% risk cutoff</li>
+                        <li><strong>Screening Rate:</strong> 27.8% of patients</li>
+                        <li><strong>Success Rate:</strong> 13.7% will have SDOH needs</li>
+                        <li><strong>Sensitivity:</strong> 72.2% detection rate</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Geriatric Clinic Settings:</h4>
+                    <ul>
+                        <li><strong>Threshold:</strong> 8.4% risk cutoff</li>
+                        <li><strong>Screening Rate:</strong> 15.4% of patients</li>
+                        <li><strong>Success Rate:</strong> 19.5% will have SDOH needs</li>
+                        <li><strong>Sensitivity:</strong> 65% detection rate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="../reports/comprehensive_shap_tripod_analysis.html" class="action-button">📊 View Complete Analysis Report</a>
+                <a href="../figures/shap/variable_importance_comprehensive.png" class="action-button">🔍 SHAP Analysis</a>
+                <a href="../figures/tripod_ai/tripod_performance_comparison.png" class="action-button">📈 TRIPOD-AI Figures</a>
+            </div>
+        </div>
+
         <!-- Next Steps -->
         <div class="section">
             <h2>🚀 Recommended Next Steps</h2>
